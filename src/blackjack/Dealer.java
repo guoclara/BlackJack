@@ -8,6 +8,25 @@ package blackjack;
 
 
 //define Dealer class here
+public class Dealer extends AbstractPlayer{
+    private Deck deck = new Deck();
+    
+    public Dealer(){
+        super();
+    }
+    
+    public void shuffle(){
+        deck.shuffle();
+    }
+    
+    public Card deal(){
+        return deck.nextCard();
+    }
+    
+    public boolean hit(){
+        return true;
+    }
+}
 	
 	
 	
