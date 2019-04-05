@@ -8,6 +8,7 @@ package blackjack;
 
 import static java.lang.System.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BlackJack
 {
@@ -24,6 +25,14 @@ public class BlackJack
 
 	public void playGame()
 	{
+            /*
+            players= new ArrayList<Playerable>();
+            Player player1 = new Player();
+            Player player2 = new Player();
+            Dealer dealer = new Dealer();
+            players.add(player1);
+            players.add(player2);
+            */
             Scanner keyboard = new Scanner(System.in);
             char choice = 0;
             int playerWins = 0;
@@ -61,6 +70,13 @@ public class BlackJack
                 }
 
                 if(choice == 'n'){
+                while(dealerTotal<=17){
+                    dealer.addCardToHand(dealer.deal());
+                    dealerTotal = dealer.getFinalHandValue();
+                    if(dealerTotal > 21){
+                        dealerTotal = dealer.getHandValue();
+                    }
+                }
                 playerTotal = player.getFinalHandValue();
                 dealerTotal = dealer.getFinalHandValue();
 
